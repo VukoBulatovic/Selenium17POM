@@ -1,5 +1,9 @@
 package AnnotationsBase;
 
+import AnnotationsPages.Homepage;
+import AnnotationsPages.LoginPage;
+import AnnotationsPages.PracticePage;
+import AnnotationsPages.ProfilePage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,6 +17,10 @@ public class BaseTest {
 
     public static WebDriver driver;
     public WebDriverWait wait;
+    public Homepage homepage;
+    public PracticePage practicePage;
+    public LoginPage loginPage;
+    public ProfilePage profilePage;
 
 
     @BeforeClass
@@ -22,6 +30,11 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver,Duration.ofSeconds(15));
+
+        homepage = new Homepage();
+        practicePage = new PracticePage();
+        loginPage = new LoginPage();
+        profilePage = new ProfilePage();
     }
 
     @AfterClass
